@@ -3,17 +3,19 @@ import { NavLink, } from 'react-router-dom';
 import { Menu, } from 'semantic-ui-react';
 
 const Navbar = () => (
-  <Menu>
-    <Menu.Item>
-      <NavLink exact to='/'>
-        Home
-      </NavLink>
-    </Menu.Item>
-    <Menu.Item>
-      <NavLink exact to='/posts'>
-        Post Index
-      </NavLink>
-    </Menu.Item>
+  <Menu inverted >
+    <Menu.Item
+      as={NavLink}
+      exact
+      to='/'
+      content='Home'
+    />
+    <Menu.Item
+      as={NavLink}
+      exact
+      to='/posts'
+      content='Post Index'
+    />
   </Menu>
 );
 

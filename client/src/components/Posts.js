@@ -16,18 +16,20 @@ class Posts extends React.Component {
   posts = () => {
     return this.props.posts.map( post =>
       <Grid.Column width={16} key={ post.id }> 
-        <Segment raised>
-          <Header size='large' textAlign='center'>{post.name}</Header>
-          <Header size ='small'>{post.date}</Header>
+        <Segment raised inverted>
+          <Header size='large' textAlign='center' inverted color="grey">{post.name}</Header>
+          <Header size ='small' inverted color="grey">{post.date}</Header>
           {post.body}
             <Button 
               as={Link} 
               to={`/posts/${post.id}`}
               floated='right'
               content='View Post'
+              inverted color="olive"
             />
             <Divider hidden />
         </Segment>
+        <Divider hidden />
       </Grid.Column>
     )
   }
@@ -37,8 +39,9 @@ class Posts extends React.Component {
 
     return (
       <Container>
-        <Header size='huge' textAlign='center'>Posts</Header>
-        <Button onClick={this.toggleForm} content='New Post' />
+        <Header size='huge' textAlign='center' inverted color="grey">Posts</Header>
+        <Button onClick={this.toggleForm} content='New Post' inverted color="green" />
+        <Divider hidden />
         { showForm ?
           <PostForm closeForm={this.toggleForm} />
         :

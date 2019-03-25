@@ -26,16 +26,16 @@ class PostView extends React.Component {
 
     return (
       <Container>
-        <Button as={Link} to="/posts" content="Back to Post Index" floated="left" />
-        <Button onClick={this.toggleForm} content="Edit Post" />
-        <Button onClick={this.handleDelete} content="Delete Post" />
+        <Button as={Link} to="/posts" content="Back to Post Index" floated="left" inverted color="olive"/>
+        <Button onClick={this.toggleForm} content="Edit Post" inverted color="orange" />
+        <Button onClick={this.handleDelete} content="Delete Post" inverted color="red"/>
         { showForm ?
           <PostForm {...post} closeForm={this.toggleForm} />
         :
           <div>
-            <Header size="huge" textAlign="center">{post.name}</Header>
-            <Segment raised>
-              <Header size="medium">{post.date}</Header>
+            <Header size="huge" textAlign="center" inverted color="grey">{post.name}</Header>
+            <Segment raised inverted>
+              <Header size="medium" color="grey">{post.date}</Header>
                 <Divider />
               {post.body}
             </Segment>
