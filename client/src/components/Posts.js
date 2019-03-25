@@ -1,16 +1,11 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 import { Link, } from 'react-router-dom';
-import { getPosts, } from '../reducers/posts';
 import PostForm from './PostForm';
 import { Container, Header, Segment, Grid, Button, Divider, } from 'semantic-ui-react';
 
 class Posts extends React.Component {
   state ={ showForm: false, };
-
-  componentDidMount() {
-    this.props.dispatch(getPosts())
-  }
 
   toggleForm = () => {
     this.setState( state => {
@@ -39,7 +34,7 @@ class Posts extends React.Component {
 
   render() {
     const { showForm } = this.state
-    
+
     return (
       <Container>
         <Header size='huge' textAlign='center'>Posts</Header>

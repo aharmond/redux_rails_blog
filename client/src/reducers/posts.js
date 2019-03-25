@@ -2,10 +2,11 @@ import axios from 'axios';
 
 // REDUX ACTIONS
 
-export const getPosts = () => {
+export const getPosts = (cb) => {
   return (dispatch) => {
     axios.get('/api/posts')
       .then( res => dispatch({ type: 'POSTS', posts: res.data }) )
+      .then( cb )
   }
 }
 
@@ -37,7 +38,7 @@ export default ( state = [], action ) => {
     case 'POSTS':
       return action.posts
     case 'ADD_POST':
-      return action.post
+      return [action.post, ...state]
     case 'UPDATE_POST':
       return state.map( p => {
         if (p.id === action.post.id)

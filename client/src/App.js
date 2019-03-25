@@ -3,18 +3,18 @@ import { Route, Switch, } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import NoMatch from './components/NoMatch';
-import Posts from './components/Posts';
-import PostView from './components/PostView';
+import FetchPosts from './components/FetchPosts';
 import { Container, } from 'semantic-ui-react';
+import Helmet from 'react-helmet';
 
 const App = () => (
   <Fragment>
-    <Navbar />
+    <Helmet bodyAttributes={{style: 'background-color : #2e333a'}} />
     <Container>
+      <Navbar />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route exact path='/posts' component={Posts} />
-        <Route exact path='/posts/:id' component={PostView} />
+        <Route path='/posts' component={FetchPosts} />
         <Route component={NoMatch} />
       </Switch>
     </Container>
